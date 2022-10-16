@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Console Module """
+
 import cmd
 import sys
 from models.base_model1 import BaseModel
@@ -8,12 +9,13 @@ import models
 import shlex
 from models.engine.file_storage import FileStorage
 
+
 class HBNBCommand(cmd.Cmd):
     """This class is entry point of the command interpreter
     """
     prompt = "(hbnb) "
     classes = {'BaseModel', 'User', 'State', 'City', 'Amenity', 'Place',
-                           'Review'}
+               'Review'}
 
     def emptyline(self):
         """Ignores empty spaces
@@ -84,8 +86,8 @@ class HBNBCommand(cmd.Cmd):
                     return
                 key = arg[0] + '.' + arg[1]
                 if key in FileStorage._FileStorage__objects:
-                        FileStorage._FileStorage__objects.pop(key)
-                        models.storage.save()
+                    FileStorage._FileStorage__objects.pop(key)
+                    models.storage.save()
                 else:
                     print("** no instance found **")
 
@@ -153,5 +155,5 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
 
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    if __name__ == '__main__':
+        HBNBCommand().cmdloop()
