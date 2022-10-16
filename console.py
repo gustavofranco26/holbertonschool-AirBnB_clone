@@ -11,7 +11,13 @@ import json
 import models
 import shlex
 from models.engine.file_storage import FileStorage
+from models.city import City
 from models.user import User
+from models.base_model import BaseModel
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
     """This class is entry point of the command interpreter
