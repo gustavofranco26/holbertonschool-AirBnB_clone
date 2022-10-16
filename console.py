@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-""" Console Module """
-
+"""
+This is the Console Module
+"""
 import cmd
 import sys
 from models.base_model1 import BaseModel
@@ -155,5 +156,5 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
 
-    if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
