@@ -46,6 +46,7 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] in HBNBCommand.classes:
             new = eval(args[0])()
             print(new.id)
+            new.save()
             models.storage.save()
         else:
             print("** class doesn't exist **")
