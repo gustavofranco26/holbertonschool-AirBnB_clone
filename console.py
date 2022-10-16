@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """
 This is the Console Module
 """
+=======
+""" Console Module """
+>>>>>>> 1cea3e11a2672f20c273baa6ebd972e75a5d6d4c
 import cmd
 import sys
 from models.base_model1 import BaseModel
