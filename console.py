@@ -11,7 +11,7 @@ import json
 import models
 import shlex
 from models.engine.file_storage import FileStorage
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """This class is entry point of the command interpreter
