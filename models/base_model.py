@@ -3,27 +3,19 @@
 from uuid import uuid4
 import os
 from datetime import datetime
-import models
 
 
 class BaseModel:
     """This class will defines all common attributes/methods
     for other classes
     """
-    def __init__(self, *args, **kwargs):
+    def __init__(self, id=None, created_at=0, updated_at=0):
         """Constructor of Base Model
         """
-        if kwargs:
-            for key, value in kwargs.items():
-                if key == "created_at" or key == "updated_at":
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                if key != "__class__":
-                    setattr(self, key, value)
-        else:
-            from models import storage
-            self.id = str(uuid4())
-            self.created_at = self.updated_at = datetime.now()
-
+        curr_time = datetime.now()
+        self.id = str(uuid4())
+        self.created_at = curr_time
+        self.updated_at = curr_time
 
     def __str__(self):
         """Returns a string representation of BaseModel
@@ -35,9 +27,7 @@ class BaseModel:
         """Save the new changes with the actual time
         """
         self.updated_at = datetime.now()
-        models.storage.new(self)
-        models.storage.save()
-    
+
     def to_dict(self):
         """Representation in a dictionary of an instance
         """
