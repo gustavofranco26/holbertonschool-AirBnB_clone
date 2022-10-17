@@ -7,11 +7,21 @@ from models.base_model import BaseModel
 import unittest
 import models
 import os
+from datetime import datetime
+import json
 
 
 class test_basemodel(unittest.TestCase):
     """ Test BaseModel
     """
+
+    def __init__(self, *args, **kwargs):
+        """Constructor
+        """
+        super().__init__(*args, **kwargs)
+        self.name = 'BaseModel'
+        self.value = BaseModel
+
     def test_save(self):
         """ Testing save
         """
@@ -39,7 +49,7 @@ class test_basemodel(unittest.TestCase):
         """ Test Created_at
         """
         new = self.value()
-        self.assertEqual(type(new.created_at), datetime.datetime)
+        self.assertEqual(type(new.created_at), datetime)
 
     def test_str(self):
         """ Test str representation
